@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUR UC | PUBG UC SHOP</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101114;color:white;font-family:Arial,sans-serif}
+header{padding:22px;background:#191a1e;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:27px;font-weight:bold;color:#ffd21c}
+.hero{text-align:center;padding:30px 15px}
+.hero h1{color:#ffd21c;font-size:32px}
+.hero p{color:#bbb}
+.container{max-width:500px;margin:auto;padding:15px}
+.card{background:#1c1e23;border:1px solid #393a40;border-radius:14px;padding:17px;margin-bottom:13px}
+.packages{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.package{background:#292b30;border:1px solid #555;border-radius:12px;padding:18px 8px;text-align:center;cursor:pointer}
+.package.selected{border:2px solid #ffd21c}
+.package b{display:block;color:#ffd21c;font-size:21px}
+.package small{display:block;margin-top:8px}
+input{width:100%;padding:14px;margin-top:10px;background:#292b30;color:white;border:1px solid #555;border-radius:9px;font-size:16px}
+button{width:100%;padding:16px;background:#ffd21c;color:#111;border:0;border-radius:10px;font-size:17px;font-weight:bold;cursor:pointer;margin-top:15px}
+footer{text-align:center;color:#888;padding:25px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">NUR UC</div>
+<div>🎮 PUBG MOBILE</div>
+</header>
+
+<div class="hero">
+<h1>PUBG UC SHOP</h1>
+<p>UC xarid qilishning qulay usuli!</p>
+</div>
+
+<div class="container">
+<div class="card">
+<h3>🔥 UC paketini tanlang</h3>
+<div class="packages">
+<div class="package selected" onclick="choose(this,60,12000)">
+<b>60 UC</b><small>12 000 so'm</small>
+</div>
+<div class="package" onclick="choose(this,325,58000)">
+<b>325 UC</b><small>58 000 so'm</small>
+</div>
+<div class="package" onclick="choose(this,660,115000)">
+<b>660 UC</b><small>115 000 so'm</small>
+</div>
+<div class="package" onclick="choose(this,1800,290000)">
+<b>1800 UC</b><small>290 000 so'm</small>
+</div>
+<div class="package" onclick="choose(this,3850,570000)">
+<b>3850 UC</b><small>570 000 so'm</small>
+</div>
+<div class="package" onclick="choose(this,8100,1150000)">
+<b>8100 UC</b><small>1 150 000 so'm</small>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h3>📝 Buyurtma ma'lumotlari</h3>
+<input id="player" placeholder="PUBG Player ID">
+<input id="name" placeholder="Ismingiz">
+<h3 id="total">60 UC — 12 000 so'm</h3>
+<button onclick="order()">BUYURTMA BERISH</button>
+</div>
+
+<div class="card">
+<h3>💳 To'lov</h3>
+<p>Karta orqali to'lov ma'lumotlari buyurtmani tasdiqlash jarayonida beriladi.</p>
+<p>Chekni admin tasdiqlaydi.</p>
+</div>
+</div>
+
+<footer>
+NUR UC © 2026<br>
+PUBG MOBILE UC SHOP
+</footer>
+
+<script>
+let uc=60,price=12000;
+function choose(el,u,p){
+document.querySelectorAll('.package').forEach(x=>x.classList.remove('selected'));
+el.classList.add('selected');
+uc=u;price=p;
+document.getElementById('total').innerText=
+uc+' UC — '+price.toLocaleString('uz-UZ')+' so‘m';
+}
+function order(){
+let id=document.getElementById('player').value.trim();
+let name=document.getElementById('name').value.trim();
+if(!id||!name){alert('Player ID va ismingizni kiriting!');return;}
+let msg='NUR UC buyurtmasi: '+uc+' UC, '+price+' so‘m. Player ID: '+id+'. Ism: '+name;
+alert(msg+'\nEndi Telegram botimizga o‘ting.');
+window.open('https://t.me/NURUC27_BOT','_blank');
+}
+</script>
+</body>
+</html>
